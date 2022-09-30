@@ -3,8 +3,8 @@ import './App.css';
 
 function App() {
   const [ika, setIka] = useState('')
-  const [yläraja, setYläraja] = useState('')
-  const [alaraja, setAlaraja] = useState('')
+  const [yläraja, setYläraja] = useState(0)
+  const [alaraja, setAlaraja] = useState(0)
 
   function laske(e){
     e.preventDefault()
@@ -18,12 +18,12 @@ function App() {
  <div id="content">
   <h3> Sykerajat Laskuri</h3>
   <form onSubmit={laske}>
-    <div> Ikä 
+    <div> Ikä  <div></div>
     <input value={ika} onChange={e => setIka(e.target.value)}/>
     </div>
     <div>
-      <label> syke rajat</label>
-      <output> {alaraja}-{yläraja}</output>
+      <label> syke rajat</label> <div></div>
+      <output> {alaraja.toFixed(0)}-{yläraja.toFixed(0)}</output>
     </div>
     <button> Laske</button>
   </form>
