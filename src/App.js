@@ -2,25 +2,28 @@ import { useState } from 'react';
 import './App.css';
 
 function App() {
-  const [mailit, setMailit] = useState('')
-  const [kilometrit, setKilometrit] = useState('')
+  const [ika, setIka] = useState('')
+  const [yläraja, setYläraja] = useState('')
+  const [alaraja, setAlaraja] = useState('')
 
   function laske(e){
     e.preventDefault()
-    const tulos = mailit * 1.609
-    setKilometrit(tulos)
+    const ylaraja = (220-ika) * 0.85
+    const alaraja = (220-ika) * 0.65
+    setYläraja(ylaraja)
+    setAlaraja(alaraja)
   }
   
   return (
  <div id="content">
-  <h3> mailit kilometreiksi</h3>
+  <h3> Sykerajat Laskuri</h3>
   <form onSubmit={laske}>
-    <div> Mailit 
-    <input value={mailit} onChange={e => setMailit(e.target.value)}/>
+    <div> Ikä 
+    <input value={ika} onChange={e => setIka(e.target.value)}/>
     </div>
     <div>
-      <label> Kilometrit</label>
-      <output>{kilometrit}</output>
+      <label> syke rajat</label>
+      <output> {alaraja}-{yläraja}</output>
     </div>
     <button> Laske</button>
   </form>
